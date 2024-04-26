@@ -1,20 +1,30 @@
 import React from 'react'
-import'@/assets/styles/globals.css'
+import '@/assets/styles/globals.css'
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import AuthProvider from '@/components/AuthProvider';
 
-
-export const metadata={
-    title: 'PropertyPulse | Find The Perfect Place',
-    description: ' Find The Best Place',
-    keywords:'Asset Manangement'
+export const metadata = {
+  title: 'PropertyPulse | Find The Perfect Place',
+  description: ' Find The Best Place',
+  keywords: 'Asset Manangement'
 };
 
-const Mainlayout = ({children}) => {
+const Mainlayout = ({ children }) => {
   return (
-  <html lang='en'>
-      <body>
-         <div>{children}</div>
-      </body>
-       </html>
+    <AuthProvider>
+      <html lang='en'>
+        <body>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+
+        </body>
+      </html>
+
+
+    </AuthProvider>
+
 
   );
 };
