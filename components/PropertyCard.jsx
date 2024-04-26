@@ -22,8 +22,8 @@ const PropertyCard = ({ property }) => {
                 //src={`/images/properties/${property.images[0]}`}
                 src={property.images[0]}
                 alt=""
-                height={100}
-                width={100}
+                height={500}
+                width={500}
                 size='100vw'
                 className='w-full h-auto rounded-t-xl'
             />

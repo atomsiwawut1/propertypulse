@@ -1,14 +1,19 @@
 import Image from "next/image";
-import React from 'react'
+import React from 'react';
 
 const PropertyImages = ({ images }) => {
+  // Return null if there are no images
+  if (!images) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <section className="bg-blue-50 p-4">
       <div className="container mx-auto">
         {images.length === 1 ? (
           <Image
             src={images[0]}
-            alt=""
+            alt="Property image"
             className="object-cover h-[400px] mx-auto rounded-xl"
             width={1800}
             height={400}
@@ -19,17 +24,14 @@ const PropertyImages = ({ images }) => {
             {images.map((image, index) => (
               <div
                 key={index}
-                className={`${images.length === 3 && index === 2
-                  ? 'col-span-2'
-                  : 'col-span-1'}`}
-              >
+                className={`col-span-${images.length === 3 && index === 2 ? '2' : '1'}`}>
                 <Image
                   src={image}
-                  alt=""
+                  alt="Property image"
                   className="object-cover h-[400px] w-full rounded-xl"
                   width={0}
                   height={0}
-                  sizes='100vw'
+                  sizes="100vw"
                   priority={true}
                 />
               </div>
@@ -39,6 +41,6 @@ const PropertyImages = ({ images }) => {
       </div>
     </section>
   );
-}
+};
 
 export default PropertyImages;
