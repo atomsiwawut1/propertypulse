@@ -159,10 +159,12 @@ const PropertyPage = () => {
                     </div>
                 </div>
             </section>
-        
+            {property && property.images && (
+                <PropertyImages images={property.images} />
+            )}
 
         </>
-        //<PropertyImages images={property.images} />
+
     );
 };
 
