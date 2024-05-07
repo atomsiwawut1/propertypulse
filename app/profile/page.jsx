@@ -1,4 +1,3 @@
-
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -6,7 +5,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import profileDefault from "@/assets/images/profile.png";
 import Spinner from "@/components/Spinner";
-
+import { toast } from 'react-toastify';
 const ProfilePage = () => {
     const { data: session } = useSession();
     const profileImage = session?.user?.image;
@@ -39,7 +38,31 @@ const ProfilePage = () => {
         // Fetch user properties when session is available
         session?.user.id && fetchUserProperties(session.user.id);
     }, [session])
-    const handleDeleteProperty = () => { }
+
+    const handleDeleteProperty = async (propertyId) => {
+        const confirmed = window.confirm(
+            'Are you sure you want to delete this property'
+        );
+        if (!confirmed) return;
+
+        try {
+            const res = await fetch(`/api/properties/${propertyId}`, { method: 'DELETE' });
+            if (res.status == 200) {
+                //remove property from state
+                const updatedProperties = properties.filter((property) => property._id !== propertyId);
+
+                setProperties(updatedProperties);
+
+                toast.success('property Deleted');
+            } else {
+                toast.error('Failed to delete Property ');
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error('Failed to delete property ');
+        }
+
+    }
     return (
         <section className="bg-blue-50">
             <div className="container m-auto py-24">
@@ -67,7 +90,7 @@ const ProfilePage = () => {
                             )}
                             {loading ? (<Spinner loading={loading} />) : (
                                 properties.map((property) => (
-                                    <div key={properties._id} className="mb-10">
+                                    <div key={property._id} className="mb-10"> {/* Change made here */}
                                         <Link href={`/properties/${property._id}`}>
                                             <Image
                                                 className="h-32 w-full rounded-md object-cover"

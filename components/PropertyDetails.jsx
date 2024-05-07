@@ -11,6 +11,8 @@ import {
 
 import Cliploader from "react-spinners/ClipLoader";
 
+import PropertyMap from '@/components/PropertyMap'
+
 const PropertyDetails = ({ property }) => {
     // Debugging output to check if the property is received correctly
     //console.log('Property received in PropertyDetails:', property);
@@ -111,7 +113,7 @@ const PropertyDetails = ({ property }) => {
                 </ul>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md mt-6">
-                <div id="map"></div>
+                <div id="map"><PropertyMap property={property}/></div>
             </div>
         </main>
     )
