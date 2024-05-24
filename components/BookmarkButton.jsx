@@ -8,7 +8,7 @@ const BookmarkButton = ({ property }) => {
   if (!property) return <p>Property data is loading...</p>;  // Early return if no property
 
   const { data: session } = useSession();
-  const userId = session?.user?.id;
+  const userId = session.user?.id;
 
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [loading, setLoading] = useState(true);

@@ -7,10 +7,20 @@ import cloudinary from "@/config/cloudinary";
 export const GET = async (request) => {
     try {
         await connectDB();
+        const page = request.nextUrl.searchParams.get('page') || 1;
+        const pageSize = request.nextUrl.searchParams.get('pageSize') || 3;
+        const skip = (page - 1) * pageSize;
 
-        const properties = await Property.find({});
+        const total = await Property.countDocuments({});
+        const properties = await Property.find({}).skip(skip).limit(pageSize);
 
-        return new Response(JSON.stringify(properties), {
+        const result = {
+            total,
+            properties,
+          };
+
+
+        return new Response(JSON.stringify(result), {
             status: 200,
         });
     } catch (error) {
