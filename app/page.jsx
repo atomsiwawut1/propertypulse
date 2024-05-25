@@ -3,7 +3,8 @@ import Link from 'next/link';
 import Hero from '@/components/Hero';
 import InfoBoxes from '@/components/InfoBoxes';
 import HomeProperties from '@/components/HomeProperties';
-import connectDB from '@/config/database';
+import FeaturedProperties from '@/components/FeaturedProperties';
+
 const Homepage = () => {
     
   
@@ -11,6 +12,7 @@ const Homepage = () => {
         <>
            <Hero />
            <InfoBoxes />
+           <FeaturedProperties />
            <HomeProperties/>
         </>
     );
