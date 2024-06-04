@@ -72,13 +72,13 @@ const Message = ({ message }) => {
 
         <li>
           <strong>Reply Email:</strong>{" "}
-          <a href={`mailto:${message.email}`} className="text-blue-500">
+          <a href={`mailto:${message.email}`} className="text-green-500">
             {message.email}
           </a>
         </li>
         <li>
           <strong>Reply Phone:</strong>{" "}
-          <a href={`tel:${message.phone}`} className="text-blue-500">
+          <a href={`tel:${message.phone}`} className="text-green-500">
             {message.phone}
           </a>
         </li>
@@ -90,7 +90,7 @@ const Message = ({ message }) => {
       <button
         onClick={handleReadClick}
         className={`mt-4 mr-3 ${
-          isRead ? "bg-gray-300" : "bg-blue-500 text-white"
+          isRead ? "bg-gray-300" : "bg-green-500 text-white"
         } py-1 px-3 rounded-md`}
       >
         {isRead ? "Mark As New" : "Mark As Read"}
