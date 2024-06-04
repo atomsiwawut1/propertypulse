@@ -44,6 +44,10 @@ const PropertySchema = new Schema(
       type: Number,
       required: true,
     },
+    square_meter: {
+      type: Number,
+      required: true,
+    },
     amenities: [
       {
         type: String,

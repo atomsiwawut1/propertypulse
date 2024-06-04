@@ -7,7 +7,7 @@ import { fetchProperty } from "@/utils/request";
 import PropertyHeaderImage from "@/components/PropertyHeaderImage";
 import Link from 'next/link';
 import PropertyDetails from "@/components/PropertyDetails";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import Spinner from "@/components/Spinner";
 import PropertyImages from "@/components/PropertyImages";
 import BookmarkButton from "@/components/BookmarkButton";
@@ -60,7 +60,7 @@ const PropertyPage = () => {
                 <div className="container m-auto py-6 px-6">
                     <Link
                         href="/properties"
-                        className="text-green-500 hover:text-green-600 flex items-center"
+                        className="text-blue-500 hover:text-blue-600 flex items-center"
                     >
                         <FaArrowLeft className="mr-2" /> Back to Properties
                     </Link>
@@ -72,30 +72,16 @@ const PropertyPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
 
 
-                        <PropertyDetails property={property} />
+                        9999
 
                         {/*<!-- Sidebar -->*/}
                         <aside className="space-y-4">
-                            <BookmarkButton property={property} />
-                            {property && <ShareButtons property={property} />}  {/* Ensure property exists before rendering */}
-
-                            {/*!<-- Contact Form --> */}
-                            <PropertyContractForm property={property} />
-                            <div className="container m-auto py-6 px-6">
-                                <Link
-                                    href={`/properties/${id}/fm`}
-                                    className="text-green-500 hover:text-green-600 flex items-center"
-                                >
-                                    <FaArrowRight className="mr-2" /> Facilities Management 
-                                </Link>
-                            </div>
+                            atom
                         </aside>
                     </div>
                 </div>
             </section>
-            {property && property.images && (
-                <PropertyImages images={property.images} />
-            )}
+
 
         </>
 
