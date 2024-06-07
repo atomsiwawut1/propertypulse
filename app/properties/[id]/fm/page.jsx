@@ -6,15 +6,12 @@ import React from 'react'
 import { fetchProperty } from "@/utils/request";
 import PropertyHeaderImage from "@/components/PropertyHeaderImage";
 import Link from 'next/link';
-import PropertyDetails from "@/components/PropertyDetails";
 import { FaArrowLeft } from "react-icons/fa";
 import Spinner from "@/components/Spinner";
-import PropertyImages from "@/components/PropertyImages";
-import BookmarkButton from "@/components/BookmarkButton";
-import ShareButtons from "@/components/ShareButtons";
-import PropertyContractForm from "@/components/PropertyContractForm";
+import ModelViewer from "@/components/ModelViewr";
 
-const PropertyPage = () => {
+
+const FMPage = () => {
 
     const { id } = useParams();
     const [property, setProperty] = useState(null);
@@ -53,7 +50,7 @@ const PropertyPage = () => {
 
             {loading && <Spinner loading={loading} />}
             {!loading && property && (<>
-                <PropertyHeaderImage image={property.images[0]} />
+                <PropertyHeaderImage image={property.images[1]} />
             </>)}
 
             <section>
@@ -67,17 +64,25 @@ const PropertyPage = () => {
                 </div>
             </section>
 
-            <section className="bg-blue-50">
+            <section className=" bg-green-50">
                 <div className="container m-auto py-10 px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
+                    <div className="flex justify-center items-center w-full" style={{ height: '650px' }}>
 
+                        <ModelViewer />
 
-                        9999
 
                         {/*<!-- Sidebar -->*/}
                         <aside className="space-y-4">
-                            atom
+                            <button>555</button>
+
+                            {/*!<-- Contact Form --> */}
+                        
+                            <div className="container m-auto py-6 px-6">
+
+                            </div>
                         </aside>
+
+
                     </div>
                 </div>
             </section>
@@ -88,4 +93,4 @@ const PropertyPage = () => {
     );
 };
 
-export default PropertyPage
+export default FMPage
