@@ -80,6 +80,13 @@ const PropertySchema = new Schema(
         type: String,
       },
     ],
+
+    ifc: [
+      {
+        type: String,
+      },
+    ],
+
     is_featured: {
       type: Boolean,
       default: false,
@@ -87,7 +94,7 @@ const PropertySchema = new Schema(
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 const Property = models.Property || model("Property", PropertySchema);
